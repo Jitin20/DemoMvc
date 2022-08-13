@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using DemoMvc.Models;
 using System.Linq;
 using System.Collections.Generic;
@@ -40,6 +41,23 @@ namespace DemoMvc.Controllers
             Movie data = movies.Where(movies => movies.Id == id).FirstOrDefault();
             return View("Info", data);
 
+        }
+        [HttpGet]
+        public IActionResult FindByRating()
+        {
+            List<int> ratinglist = new List<int> { 1, 2, 3, 4, 5 };
+            ViewBag.rating = new SelectList(ratinglist);
+            return View();  //should go with http Post
+        }
+        [HttpPost]
+        public IActionResult FindByRating(int rating)
+        {
+            List<Movie> movies = GetMovies();
+            var data = movies.Where(m => m.Rating == rating);
+            ViewBag.MovieList = data;
+            List<int> ratinglist = new List<int> { 1, 2, 3, 4, 5 };
+            ViewBag.rating = new SelectList(ratinglist);
+            return View();
         }
     }
 }
