@@ -1,0 +1,14 @@
+﻿@{
+	Layout="~/Views/Shared/MainLayout.cshtml";
+}
+
+<nav style="text-align:center">
+	@Html.ActionLink("Index", "Info", "Movie")&nbsp;&nbsp;&nbsp;
+	@Html.ActionLink("All", "List", "Movie")&nbsp;&nbsp;&nbsp;
+	@Html.ActionLink("Find By Rating", "FindByRating", "Movie")&nbsp;&nbsp;&nbsp;
+	@Html.ActionLink("Find", "Search", "Movie")&nbsp;&nbsp;&nbsp;
+</nav>
+
+<div style = "background-color: bisque">
+	@RenderBody()
+</div>

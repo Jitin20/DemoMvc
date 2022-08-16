@@ -1,0 +1,13 @@
+﻿@{
+	Layout="~/Views/Shared/MainLayout.cshtml";
+}
+
+<nav style="text-align:right">
+	@Html.ActionLink("Index", "Index", "Home")
+	@Html.ActionLink("About", "About", "Home")
+	@Html.ActionLink("Contact", "Contact", "Home")
+</nav>
+
+<div style = "background-color: bisque">
+	@RenderBody()
+</div>
